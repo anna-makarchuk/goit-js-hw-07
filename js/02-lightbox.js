@@ -6,6 +6,7 @@ console.log(galleryItems);
 const gallery = document.querySelector(".gallery");
 const markup = markupImg(galleryItems);
 
+gallery.addEventListener('click',onClick)
 
 function markupImg(galleryItems) {
     return galleryItems.map(({ preview,original, description }) => {
@@ -20,6 +21,9 @@ function markupImg(galleryItems) {
 };
 gallery.insertAdjacentHTML('beforeend', markup);
 
+function onClick(event) {
+     event.preventDefault();
+
 
     let lightbox = new SimpleLightbox('.gallery a', {
         captions: 'true',
@@ -28,4 +32,5 @@ gallery.insertAdjacentHTML('beforeend', markup);
         captionDelay: 250
     });
     lightbox.open();
-
+    return;
+}
