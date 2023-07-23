@@ -29,6 +29,28 @@ function markupImg(galleryItems) {
 gallery.insertAdjacentHTML('beforeend', markup);
 
 
+// function onImgContainerClick(event) {
+//     event.preventDefault();
+//     for (let i = 0; i < galleryItems.length; i++) {
+//        if (event.target.getAttribute('src') === galleryItems[i].preview) {
+//             const instance = basicLightbox.create(
+//             ` <img src="${galleryItems[i].original}" width="800" height="600"> `
+//         );
+//            instance.show();
+//            document.body.addEventListener('keydown',(e)=> {
+//     if (e.code === 'Escape') {
+//       instance.close();
+  
+//     }
+
+//   });
+
+//        }
+//     }
+// };
+
+
+
 function onImgContainerClick(event) {
     event.preventDefault();
     for (let i = 0; i < galleryItems.length; i++) {
@@ -39,11 +61,16 @@ function onImgContainerClick(event) {
            instance.show();
            document.body.addEventListener('keydown',(e)=> {
     if (e.code === 'Escape') {
-        instance.close();
+      instance.close();
+    }
+  });
+        document.body.removeEventListener('keydown',(e)=> {
+    if (e.code === 'Escape') {
+      instance.close();
     }
 
   });
-
+         
        }
     }
 };
